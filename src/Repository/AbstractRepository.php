@@ -20,8 +20,7 @@ abstract class AbstractRepository
     public function find(int $id): ?object
     {
         $index = array_search($id, array_column((array)$this->data, 'id'));
-
-        return $index ? $this->data[$index] : null;
+        return $index !== false ? $this->data[$index] : null;
     }
 
     public function get(int $number = null, int $offset = 0): iterable
