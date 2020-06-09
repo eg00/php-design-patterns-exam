@@ -8,7 +8,7 @@ use DateTimeInterface;
 class Vehicle
 {
     private ?int $id = null;
-    private ?string $build = null;
+    private ?string $manufacturer = null;
     private ?DateTimeInterface $issueDate = null;
     private ?int $mileage = null;
 
@@ -23,18 +23,18 @@ class Vehicle
     /**
      * @return string|null
      */
-    public function getBuild(): ?string
+    public function getManufacturer(): ?string
     {
-        return $this->build;
+        return $this->manufacturer;
     }
 
     /**
-     * @param string|null $build
+     * @param string|null $manufacturer
      * @return Vehicle
      */
-    public function setBuild(?string $build): Vehicle
+    public function setManufacturer(?string $manufacturer): Vehicle
     {
-        $this->build = $build;
+        $this->manufacturer = $manufacturer;
         return $this;
     }
 
