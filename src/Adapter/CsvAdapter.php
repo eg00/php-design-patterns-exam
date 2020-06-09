@@ -23,7 +23,8 @@ class CsvAdapter extends AbstractAdapter
             if ($index === 0) {
                 continue;
             }
-            if (count($this->keys) === count($row)) {
+
+            if ($row && count($this->keys) === count($row)) {
                 $with_keys = array_combine($this->keys, array_values($row));
                 $result[] = (object)$this->typecast($with_keys);
             }

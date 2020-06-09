@@ -8,7 +8,7 @@ use DateTime;
 use RuntimeException;
 use SplFileObject;
 
-abstract class AbstractAdapter
+abstract class AbstractAdapter implements AdapterInterface
 {
     /**
      * @var string
