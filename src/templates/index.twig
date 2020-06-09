@@ -1,0 +1,57 @@
+{% extends 'layout.twig' %}
+{% block title %} index {% endblock %}
+{% block body %}
+    <h1 class="text-4xl text-center">Vehicles list</h1>
+    <div class="flex mb-4">
+
+            <div class="w-1/2"><h2 class="text-center">CSV</h2> </div>
+            <div class="w-1/2"><h2 class="text-center">JSON</h2></div>
+
+    </div>
+    <div class="flex justify-center">
+        <div class="w-1/2 ">
+            <table class="table-auto w-11/12">
+                <thead>
+                <tr>
+                    <th class="px-4 py-2">Manufacturer</th>
+                    <th class="px-4 py-2">issueDate</th>
+                    <th class="px-4 py-2">Mileage</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for csvItem in csvData %}
+                    <tr class="hover:bg-gray-300 {{ loop.index0 is odd ? 'bg-gray-200' : '' }}">
+                        <td class="border px-4 py-2"><a class="underline text-blue-500 hover:text-blue-700" href="/item?id={{ csvItem.id }}&source=csv">{{ csvItem.manufacturer }}</a></td>
+                        <td class="border px-4 py-2">{{ csvItem.issueDate | date }}</td>
+                        <td class="border px-4 py-2">{{ csvItem.mileage | number_format }}</td>
+                    </tr>
+
+                {% endfor %}
+
+            </table>
+        </div>
+        <div class="w-1/2">
+            <table class="table-auto w-11/12">
+                <thead>
+                <tr>
+                    <th class="px-4 py-2">Manufacturer</th>
+                    <th class="px-4 py-2">issueDate</th>
+                    <th class="px-4 py-2">Mileage</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for jsonItem in jsonData %}
+                    <tr class="hover:bg-gray-300 {{ loop.index0 is odd ? 'bg-gray-200' : '' }}">
+                        <td class="border px-4 py-2"><a class="underline text-blue-500 hover:text-blue-700" href="/item?id={{ jsonItem.id }}&source=json">{{ jsonItem.manufacturer }}</a></td>
+                        <td class="border px-4 py-2">{{ jsonItem.issueDate | date }}</td>
+                        <td class="border px-4 py-2">{{ jsonItem.mileage | number_format }}</td>
+                    </tr>
+
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+
+
+{% endblock %}

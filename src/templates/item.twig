@@ -1,0 +1,26 @@
+{% extends 'layout.twig' %}
+{% block title %} {{ item.id }} {% endblock %}
+{% block body %}
+    <h1 class="text-4xl text-center">{{ item.manufacturer }}</h1>
+    <div class="flex justify-center">
+        <div class="max-w-sm rounded shadow-lg">
+            <table class="table-auto">
+                <tr>
+                    <th class="border px-10 py-4">ID</th>
+                    <td class="border px-20 py-4">{{ item.id }}</td>
+                </tr>
+                <tr>
+                    <th class="border px-10 py-4">Issue date</th>
+                    <td class="border px-4 py-4">{{ item.issueDate | date }}</td>
+                </tr>
+                <tr>
+                    <th class="border px-10 py-4">Mileage</th>
+                    <td class="border px-20 py-4">{{ item.mileage | number_format }}</td>
+                </tr>
+            </table>
+            <a href="/" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold m-4 py-2 px-4 rounded">
+                Back
+            </a>
+        </div>
+    </div>
+{% endblock %}
